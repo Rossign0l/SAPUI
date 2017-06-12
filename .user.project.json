@@ -21,7 +21,25 @@
         "id": 7165954,
         "runnerId": "webapprunner",
         "displayName": "App w/Mock",
-        "lastRunTimeStamp": 1497277682576
+        "lastRunTimeStamp": 1497282248618
+      }
+    },
+    {
+      "filePath": "/test/integration/opaTests.qunit.html",
+      "previewMode": 1,
+      "dataMode": 0,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [],
+      "hashParameter": "",
+      "backendSystem": [],
+      "_metadata": {
+        "id": 5930655,
+        "runnerId": "webapprunner",
+        "displayName": "opa Tests",
+        "lastRunTimeStamp": 1497282224639
       }
     },
     {

@@ -2,21 +2,27 @@ sap.ui.require([
 		'sap/ui/test/Opa5',
 		'sap/ui/test/matchers/AggregationLengthEquals',
 		'sap/ui/test/matchers/PropertyStrictEquals',
-		'sap/ui/demo/bulletinboard/test/integration/pages/Common'
+		'sap/ui/demo/bulletinboard/test/integration/pages/Common',
+		'sap/ui/test/actions/Press'
 	],
-	function (Opa5,
-			  AggregationLengthEquals,
-			  PropertyStrictEquals,
-			  Common) {
+	function (Opa5, AggregationLengthEquals, PropertyStrictEquals, Common, Press) {
 		"use strict";
-
 		var sViewName = "Worklist",
 			sTableId = "table";
-
 		Opa5.createPageObjects({
 			onTheWorklistPage: {
 				baseClass: Common,
-				actions: {},
+				actions: {
+					iPressOnMoreData: function () {
+						return this.waitFor({
+							id: sTableId,
+							viewName: sViewName,
+							actions: new Press(),
+							errorMessage: "The Table does not have a trigger"
+						});
+					}
+
+				},
 				assertions: {
 					theTableShouldHaveAllEntries: function () {
 						return this.waitFor({
@@ -32,7 +38,6 @@ sap.ui.require([
 							errorMessage: "Table does not have all entries."
 						});
 					},
-
 					theTitleShouldDisplayTheTotalAmountOfItems: function () {
 						return this.waitFor({
 							id: "tableHeader",
@@ -50,9 +55,7 @@ sap.ui.require([
 							errorMessage: "The Table's header does not container the number of items: 23"
 						});
 					}
-
 				}
 			}
 		});
-
 	});
